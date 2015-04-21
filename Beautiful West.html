@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initial Setup</title>
+    <style>
+        @keyframes fader {
+            0% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes fader {
+            0% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes fader {
+            0% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        html {
+            font: 300 100% 'Helvetica Neue', Sans-Serif;
+	    background: url(WestMap.jpg) no-repeat center center fixed; 
+  	    -webkit-background-size: cover;
+  	    -moz-background-size: cover;
+ 	    -o-background-size: cover;
+  	    background-size: cover;
+        }
+
+
+       body {
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        .container {
+	    color: #555;
+            height: 50vw;
+            width: 55vw;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        #pics {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+	    object-position: 50% 0px;
+   	    -moz-box-shadow:    7px 7px 5px 0px #333;
+  	    -webkit-box-shadow: 7px 7px 5px 0px #333;
+       	    box-shadow:         7px 7px 5px 0px #333;
+        }
+
+        p {
+            font-size: 2vw;
+        }
+
+        header {
+            font-size: 3vw;
+	    color: #ddd;
+	    text-shadow: 3px 3px #999;
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 0;
+            top: 0;
+            padding: 45px;
+            text-align: center;
+        }
+
+        footer {
+	    font-size: 1vw;
+            box-sizing: border-box;
+	    color: #666;
+            width: 100%;
+            margin-bottom: 0;
+            bottom: 0;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            animation: fader 6.001s infinite;
+            -moz-animation: fader 6.001s infinite;
+            -webkit-animation: fader 6.001s infinite;
+        }
+	@media screen and (max-width: 1100px) {
+	    .container {
+		width: 605px;
+	        height: 100%;
+	    }
+	    header {
+	    	font-size: 33px;
+	    }
+	    p {
+	    	font-size: 22px;
+	    }
+	    footer {
+	    	font-size: 11px;
+	    }
+	}
+    </style>
+</head>
+<body>
+    <header>States of the American West</header>
+    <div class="container">
+        <img id="pics" src="10.jpg"/>
+        <p id="text">Text</p>
+    </div>
+    <footer>&copy;2015 Robert Turner. A survey of the Western states.</footer>
+</body>
+<script>
+    var m = [
+                '01.jpg',
+                '02.jpg',
+                '03.jpg',
+                '04.jpg',
+                '05.jpg',
+                '06.jpg',
+                '07.jpg',	
+                '08.jpg',
+                '09.jpg',
+                '10.jpg',
+                '11.jpg',
+                '12.jpg',
+                '13.jpg'
+            ],
+            i = 0;
+    var n = [
+                "Arizona",
+                "California",
+                "Colorado",
+                "Idaho",
+                "Montana",
+                "Nevada",
+                "New Mexico",
+                "Oregon",
+                "South Dakota",
+                "Texas",
+                "Utah",
+                "Washington",   
+                "Wyoming"
+            ],
+            i = 0;
+
+    function update() {
+        var pTag = document.getElementById('text');
+        pTag.innerHTML = n[i];
+        document.getElementById('pics').setAttribute("src", m[i]);
+        i++;
+        if (i >= m.length) i = 0;
+    }
+
+    update();
+    setInterval(update, 6000);
+
+    //  Sometimes the CSS and JavaScript have trouble lining up when switching to another application or when
+    //  you change tabs in your browser. This should only be viewed for a short duration to get a glimpse of
+    //  the project. I am not interested in fixing this as it is not a practical application.
+</script>
+</html>
